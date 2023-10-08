@@ -10,6 +10,9 @@ public class DVD extends Item{
         this.duration = duration;
     }
 
+    public int getDuration() {
+        return duration;
+    }
 
     @Override
     public String idGenerator() {
@@ -24,10 +27,18 @@ public class DVD extends Item{
         return result;
     }
 
+    @Override
+    void borrowItem() {
+        super.setBorrowed(true);
+    }
 
+    @Override
+    void returnItem() {
+        super.setBorrowed(false);
+    }
 
     @Override
     public String toString() {
-        return "DVD title: " + super.getTitle() + ", Duration: " + duration + "min; \n";
+        return "DVD title: " + super.getTitle() + ", Duration: " + duration + "min; ";
     }
 }

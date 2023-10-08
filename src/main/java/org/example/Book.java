@@ -9,7 +9,9 @@ public class Book extends Item {
         this.author = author;
     }
 
-
+    public String getAuthor() {
+        return author;
+    }
 
     @Override
     public String idGenerator() {
@@ -24,6 +26,15 @@ public class Book extends Item {
         return result;
     }
 
+    @Override
+    void borrowItem() {
+        super.setBorrowed(true);
+    }
+
+    @Override
+    void returnItem() {
+        super.setBorrowed(false);
+    }
 
     @Override
     public String toString() {
