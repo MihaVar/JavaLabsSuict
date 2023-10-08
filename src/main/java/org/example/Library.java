@@ -65,7 +65,7 @@ public class Library implements IManageble {
     }
 
     @Override
-    public ArrayList<Item> listBorrowed() {
+    public ArrayList<Item> borrowedList() {
         ArrayList<Item> listBorrowed = new ArrayList<>();
         for (Item i : items) {
             if(i.isBorrowed()) listBorrowed.add(i);
@@ -79,7 +79,7 @@ public class Library implements IManageble {
     }
 
     @Override
-    public ArrayList<Item> listAvailable() {
+    public ArrayList<Item> availableList() {
         ArrayList<Item> listAvailable = new ArrayList<>();
         for (Item i : items) {
             if(!i.isBorrowed()) listAvailable.add(i);

@@ -7,6 +7,6 @@ import java.util.ArrayList;
 public interface IManageble {
     boolean addItem(Item i);
     Item removeItem(Item i);
-    ArrayList<Item> listBorrowed();
-    ArrayList<Item> listAvailable();
+    ArrayList<Item> borrowedList();
+    ArrayList<Item> availableList();
 }

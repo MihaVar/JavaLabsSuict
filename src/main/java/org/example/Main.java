@@ -30,9 +30,9 @@ public class Main {
         lib.lendItem(patron1, dvd2);
         lib.lendItem(patron3, dvd2);
 
-        lib.listAvailable();
-        lib.listBorrowed();
-        lib.listAvailable();
+        lib.availableList();
+        lib.borrowedList();
+        lib.availableList();
 
         lib.returnItem(patron2, book1);
         lib.returnItem(patron3, dvd2);
@@ -40,6 +40,6 @@ public class Main {
 
         lib.removeItem(book1);
 
-        lib.listAvailable();
+        lib.availableList();
     }
 }
