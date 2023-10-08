@@ -1,1 +1,1 @@
-# JavaLabsSuict
+# Java Labs SUICT repository
