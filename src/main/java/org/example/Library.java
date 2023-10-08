@@ -2,69 +2,55 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class Library {
-    private ArrayList<Book> books = new ArrayList<>();
+public class Library{
+    private final ArrayList<Item> items = new ArrayList<>();
 
-    public int getSize(){
-        return books.size();
+
+    public ArrayList<Item> getItems() {
+        return items;
     }
 
-    public boolean addBook(String n, String au, long isbn, int y) {
-        int flag = 0;
-        for (Book b : books) {
-            if(b.getISBN() == isbn) {
-                flag = 1;
-                break;
+
+    public boolean addItem(Item i) {
+        for (Item item : items) {
+            if(item.getUniqueID().equals(i.getUniqueID())){
+                printer("Item already exist");
+                return false;
             }
         }
-        if(flag == 0) {
-            return books.add(new Book(n, au, isbn, y));
-        }
-        else {
-            return false;
-        }
-    }
-
-    public void showBooks() {
-        for (Book b : books) {
-            System.out.println(b.toString());
-        }
-    }
-
-    public void searchByName(String n) {
-        for (Book b : books) {
-            if(b.getName().equals(n)) {
-                System.out.println(b);
-            }
-            else {
-                System.out.println("Book with such name doesn't exist!");
-            }
-            break;
-
-        }
+        printer("Item added");
+        return items.add(i);
     }
 
 
-    public void deleteBook(long isbn) {
-        int num = findIndex(isbn);
-        if(num == 0){
-            System.out.println("Book not found!");
-        }
-        else {
-            books.remove(findIndex(isbn));
-        }
-
-    }
-
-    public int findIndex(long isbn){
-        int index = 0;
-
-        for(int i = 0; i < books.size(); i++) {
-            if(books.get(i).getISBN() == isbn) {
-                index = i;
-                break;
+    public Item removeItem(Item item) {
+        for (int i = 0; i < items.size(); i++) {
+            if(item.getUniqueID().equals(items.get(i).getUniqueID())){
+                printer("Item removed");
+                return items.remove(i);
             }
         }
-        return index;
+        printer("Item does not exist");
+        return null;
+    }
+
+
+
+    public ArrayList<Item> listAvailable() {
+        ArrayList<Item> listAvailable = new ArrayList<>();
+        for (Item i : items) {
+            listAvailable.add(i);
+        }
+        if(listAvailable.size() != 0) {
+            printer("List of available items:\n" + listAvailable);
+            return listAvailable;
+        }
+        printer("No available items");
+        return null;
+    }
+
+    private void printer(String message) {
+        System.out.println(message);
+        System.out.println(" ");
     }
 }
