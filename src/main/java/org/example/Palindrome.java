@@ -1,13 +1,8 @@
 package org.example;
 
 public class Palindrome {
-    public static boolean Palind(String str) {
-        str = str.replaceAll("\\s", "").toLowerCase();
-
-        String str2 = "";
-        for (int i = str.length()-1; i >=0 ; i--) {
-            str2 += str.toCharArray()[i];
+        public static boolean Palind(String str) {
+            if(str == null || str.length() == 1 || str.isEmpty()) return false;
+            return new StringBuilder(str).reverse().toString().replaceAll(" ", "").equalsIgnoreCase(str.replaceAll(" ", ""));
         }
-        return str.equals(str2);
-    }
 }

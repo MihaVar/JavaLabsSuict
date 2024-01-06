@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Enter your word: ");
         Scanner word = new Scanner(System.in);
         String str = word.nextLine();
 
-        System.out.println("Enter your word: ");
         if (Palindrome.Palind(str)) {
-            System.out.println("Its palindrome");
+            System.out.println("It's a palindrome!");
         }
         else {
-            System.out.println("Its not a palindrome");
+            System.out.println("It's not a palindrome!");
         }
     }
 

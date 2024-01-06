@@ -12,13 +12,16 @@ public class PalindromeTest {
 
     @Test
     void testIsPalindrome() {
-        assertTrue(palindrome.Palind("Tenet"));
-        assertTrue(palindrome.Palind("aBBa"));
-        assertTrue(palindrome.Palind("cIVIC"));
-    }
-
-    @Test
-    void testIsNotPalindrome() {
-        assertFalse(palindrome.Palind("Hercules"));
+        assertFalse(palindrome.Palind(null));
+        assertFalse(palindrome.Palind("null"));
+        assertFalse(palindrome.Palind("null"));
+        assertTrue(palindrome.Palind("hannah"));
+        assertTrue(palindrome.Palind("pup"));
+        assertTrue(palindrome.Palind("nan"));
+        assertFalse(palindrome.Palind("lollipop"));
+        assertTrue(palindrome.Palind("eye"));
+        assertTrue(palindrome.Palind("6543456"));
+        assertTrue(palindrome.Palind("step on no pets"));
+        assertTrue(palindrome.Palind("A man a plan a canal Panama"));
     }
 }
