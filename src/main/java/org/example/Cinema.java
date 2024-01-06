@@ -53,6 +53,7 @@ public class Cinema {
             return false;
         }
 
+
         for (int[] row : hall[screen]) {
             int availableSeats = 0;
             for (int seat : row) {
