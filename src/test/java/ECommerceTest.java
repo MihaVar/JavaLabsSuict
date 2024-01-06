@@ -4,12 +4,14 @@ import org.example.Product;
 import org.example.Status;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@ExtendWith(MockitoExtension.class)
 public class ECommerceTest {
     @Mock
     private Product product1;
@@ -17,12 +19,11 @@ public class ECommerceTest {
     private Product product2;
     @Mock
     private Product product3;
+    @Mock
     private Cart cart;
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
-
         cart = new Cart();
 
         cart.add(product1);
