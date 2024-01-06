@@ -13,36 +13,23 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public double deposit(double amount){
-        try{
-            if(amount > -1){
-                this.balance += amount;
-            }
-            else {
-                throw new NegativeAmountException("Negative amount");
-            }
+    public double deposit(double amount) throws NegativeAmountException {
+        if (amount < 0.0d) {
+            throw new NegativeAmountException("Negative amount");
         }
-        catch (NegativeAmountException e){
-            System.out.println(e.getMessage());
-        }
-        return this.balance;
+        balance += amount;
+        return amount;
     }
 
-    public double withdraw(double amount) {
-        try {
-            if (amount < 0) {
-                throw new NegativeAmountException("Negative amount");
-            } else if (amount > balance) {
-                throw new InsufficientFundsException("Insufficient funds");
-            } else {
-                this.balance -= amount;
-            }
-        } catch (NegativeAmountException e) {
-            throw new NegativeAmountException(e.getMessage());
-        } catch (InsufficientFundsException e) {
-            throw new InsufficientFundsException(e.getMessage());
+    public double withdraw(double amount) throws NegativeAmountException, InsufficientFundsException {
+        if (amount < 0.0d) {
+            throw new NegativeAmountException("Negative amount");
         }
-        return this.balance;
+        if (amount > balance) {
+            throw new InsufficientFundsException("Insufficient funds");
+        }
+        balance -= amount;
+        return amount;
     }
 
     public double getBalance(){

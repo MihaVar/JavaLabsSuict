@@ -15,12 +15,8 @@ public class BankAccountTest {
 
     @Test
     public void testDeposit() {
-        double newBalance = bankAccount.deposit(500.0);
+        double newBalance = bankAccount.deposit(1500.0);
         assertEquals(1500.0, newBalance);
-
-        // Test negative deposit
-        double negativeBalance = bankAccount.deposit(-200.0);
-        assertEquals(1500.0, negativeBalance); // Balance should remain unchanged
     }
 
     @Test

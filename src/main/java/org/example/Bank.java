@@ -15,18 +15,10 @@ public class Bank {
         return accounts.add(account);
     }
 
-    public BankAccount findAccount(int accountNumber) {
-        try{
-            for (BankAccount account : accounts) {
-                if (account.getNumber() == accountNumber) {
-                    return account;
-                }
-            }
-            throw new AccountNotFoundException("Account not found!");
-        }
-        catch (AccountNotFoundException e) {
-            throw new AccountNotFoundException(e.getMessage());
-        }
+    public BankAccount findAccount(int accountNumber) throws AccountNotFoundException {
+        return accounts.stream().filter(account -> account.getNumber() == accountNumber)
+                .findFirst()
+                .orElseThrow(() -> new AccountNotFoundException("Account not found by id: " + accountNumber));
     }
 
     public double transferMoney(int fromAccountNumber, int toAccountNumber, double amount){
